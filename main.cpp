@@ -11,6 +11,8 @@ bool brute(const std::string& target, const std::string& charset, std::string& o
         for (int i = 0; i < maxLen; i++)
             guess += charset[idx[i]];
 
+        std::cout << "Trying: " << guess << "\n";   // <-- PRINT EVERY CHOICE
+
         if (guess == target) {
             out = guess;
             return true;
@@ -28,10 +30,12 @@ bool brute(const std::string& target, const std::string& charset, std::string& o
     }
 }
 
+
 int main() {
-    std::string target = "abc1";
+    std::string target = "tg12345ab29";
     std::string charset = "abcdefghijklmnopqrstuvwxyz1234567890";
     std::string result;
+    
 
     if (brute(target, charset, result, target.size())) {
         std::cout << "Found: " << result << "\n";
